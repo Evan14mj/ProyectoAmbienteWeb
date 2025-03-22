@@ -6,50 +6,12 @@ body {
     padding: 0;
     background-color: #f5f5f5;
 }
-
-/* diseño de la parte de la barra de navegacion, encabezado, navbar */
-
-header {
-    background-color: #4fc3dc;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px; 
-    justify-content: center; /*para que los elementos de la barra de navegacion aparezcan centrados*/
-}
-
-/* imagen de la barra de navegacion */ 
-
-.logo img { /*header .logo img*/
-    height: 70px; /*50px*/
-}
-
-/* diseño de los elementos que aparecen en la barra de navegacion */
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 50px; /*gap: 20px*/
-}
-
-nav ul li {
-    display: inline; 
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
-
 /* diseño para todos los elementos de la pagina porque estan dentro de este contenedor */
 
 .container {
     display: flex;
     justify-content: space-between;
-    padding: 70px; /*cambiar aca para que no haya tanto espacio entre los dos cuadros de "mis inscripciones" y "detalles de la actividad"*/ 
-    justify-content: center; 
-    align-items: center;
+    padding: 79px; /*cambiar aca para que no haya tanto espacio entre los dos cuadros de "mis inscripciones" y "detalles de la actividad"*/
 }
 
  /* diseño de toda la parte donde salen las inscripciones/eventos  */
@@ -60,7 +22,7 @@ nav ul li a {
     border-radius: 10px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
     flex: 1;
-    max-width: 900px; /*tamaño del cuadro de inscripciones*/
+    max-width: 600px; 
 }
 
 /* diseño para el titulo de "mis inscripciones" */
@@ -96,4 +58,41 @@ nav ul li a {
 
 .btn-detalles:hover {
     background-color: #0f4c5c;
+}
+
+/* diseño de la parte de los detalles de las actividades  */ 
+
+.detalles-actividad {
+    background-color: #e0f7fa;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    width: 300px; 
+    align-items: center; /*estos ultimos dos es para que boton "cerrar" este centrado*/
+    text-align: center;
+}
+
+.detalles-actividad h3 {
+    text-align: center;
+    border-bottom: 2px solid #4fc3dc;
+    padding-bottom: 10px;
+}
+
+.detalles-actividad p {
+    font-size: 16px;
+    gap: 25px;
+    line-height: 37px;
+    text-align: left; /*para que solo boton "cerrar" aparezca centrado*/
+}
+
+
+
+/* diseño de boton "cerrar" */
+.btn-cerrar {
+    background-color: #e93939;
+    color: white;
+    border: none;
+    padding: 9px 25px; 
+    cursor: pointer;
+    border-radius: 5px;
 }

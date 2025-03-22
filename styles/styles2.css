@@ -7,40 +7,6 @@ body {
     background-color: #f5f5f5;
 }
 
-/* diseño de la parte de la barra de navegacion, encabezado, navbar */ 
-
-header {
-    background-color: #4fc3dc;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    justify-content: center; /*para que los elementos de la barra de navegacion aparezcan centrados*/ 
-}
-
-/* imagen de la barra de navegacion */
-
-.logo img {
-    height: 70px;
-}
-
-/* diseño de los elementos que aparecen en la barra de navegacion */ 
-
-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 50px;
-}
-
-nav ul li {
-    display: inline;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: white;
-    font-weight: bold;
-}
 
 /* diseño para todos los elementos de la pagina porque estan dentro de este contenedor */ 
 
