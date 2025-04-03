@@ -3,28 +3,12 @@
     <head>
         <meta charset="UTF-8">
         <title>Inscripcion</title>
-        <link rel="stylesheet" href="styles/Inscripcion.css">
-        <link rel="stylesheet" href="styles/styles.css">
+        <link rel="stylesheet" href="assets/styles/Inscripcion.css">
+        <link rel="stylesheet" href="assets/styles/styles.css">
     </head>
     <body>
         
-        <header class="header-container">
-            <nav class="nav-container">
-                <div class="image-container">
-                    <a href="index.html"><img src="img/logo-removebg-preview.png" alt="" height="60px"></a>
-                </div>
-                <div class="nav-container">
-                    <ul class="nav-bar">
-                        <a href="#"><li>Inicio</li></a>
-                        <a href="#"><li>Acerca de Nosotros</li></a>
-                        <a href="#"><li>Servicios </li></a>
-                        <a href="#"><li>Actividades</li></a>
-                        <a href="inscripcion.html"><li>Inscripcion</li></a>
-                        <a href="gestionSolicitudes.html"><li>Solicitudes</li></a>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+    <?php include 'includes/navbar.php'; ?> 
     
         <main class="container">
             <section class="inscripciones">
