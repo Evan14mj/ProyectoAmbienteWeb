@@ -1,17 +1,16 @@
-<header class="header-container">
-        <nav class="nav-container">
-            <div class="image-container">
-                <a href="index.php"><img src="assets/img/logo-removebg-preview.png" alt="" height="60px"></a>
-            </div>
-            <div class="nav-container">
-                <ul class="nav-bar">
-                    <a href="index.php"><li>Inicio</li></a>
-                    <a href="#"><li>Acerca de Nosotros</li></a>
-                    <a href="#"><li>Servicios </li></a>
-                    <a href="#"><li>Actividades</li></a>
-                    <a href="inscripcion.php"><li>Inscripcion</li></a>
-                    <a href="gestionSolicitudes.php"><li>Solicitudes</li></a>
-                </ul>
-            </div>
-        </nav>
-    </header>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link active" aria-current="page" href="#">Home</a>
+        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+      </div>
+    </div>
+  </div>
+</nav>
