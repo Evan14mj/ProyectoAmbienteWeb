@@ -1,14 +1,12 @@
+<?php require_once ('functions/conexion.php'); ?>
 <!DOCTYPE html>
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>Inscripcion</title>
-        <link rel="stylesheet" href="assets/styles/Inscripcion.css">
-        <link rel="stylesheet" href="assets/styles/styles.css">
-    </head>
-    <body>
-        
-    <?php include 'includes/navbar.php'; ?> 
+    
+
+    <?php 
+    inlcude ('includes/header.php');
+    include ('includes/navbar.php'); 
+    ?> 
     
         <main class="container">
             <section class="inscripciones">
