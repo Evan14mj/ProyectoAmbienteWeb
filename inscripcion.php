@@ -1,11 +1,6 @@
-<?php require_once ('functions/conexion.php'); ?>
-<!DOCTYPE html>
-<html>
-    
-
     <?php 
-    inlcude ('includes/header.php');
-    include ('includes/navbar.php'); 
+    require_once ('includes/header.php');
+    require_once ('includes/navbar.php'); 
     ?> 
     
         <main class="container">
@@ -35,5 +30,4 @@
                 </div>
             </section>
         </main>
-    </body>
-</html>
+<?php require_once ('includes/footer.php');?>
