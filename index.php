@@ -5,14 +5,27 @@
     require_once ('includes/navbar.php');
 ?>
 
-<main class="container mt-5">
+<main>
     <!-- Contenido principal de la página -->
-    <div class="row">
-        <div class="col-12">
-            <h1 class="text-center">Bienvenido a nuestro sitio</h1>
-            <p class="text-center">Explora nuestras actividades y servicios</p>
+    <section class="hero-section">
+
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        
+        <div class="container hero-content">
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <h1 class="display-3 fw-bold mb-4">Título Impactante</h1>
+                    <p class="lead fs-4 mb-5">Este es un hero section con imagen de fondo que ahora sí debería verse correctamente en todos los dispositivos.</p>
+                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
+                        <button class="btn btn-primary btn-lg px-4">Botón Principal</button>
+                        <button class="btn btn-outline-light btn-lg px-4">Botón Secundario</button>
+                    </div>
+                </div>
+            </div>
         </div>
-    </div>
+    </section>
+    
 </main>
 
 <!-- Modal de bienvenida para usuarios no autenticados -->

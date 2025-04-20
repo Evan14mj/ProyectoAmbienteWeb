@@ -8,7 +8,7 @@ function isLoggedIn() {
 function login($email, $password) {
     global $conexion;
     
-    $sql = "SELECT USUARIO_ID, NOMBRE, APELLIDO, EMAIL, PASSWORD, ROL, FECHA_REGISTRO 
+    $sql = "SELECT USUARIOS_ID, NOMBRE, APELLIDO, EMAIL, PASSWORD, ROL, FECHA_REGISTRO 
             FROM usuarios 
             WHERE EMAIL = ? AND PASSWORD = ?";
     
@@ -48,8 +48,8 @@ function register($nombre, $apellido, $email, $password) {
     if ($stmt->execute()) {
         // Si el registro es exitoso, obtener los datos del usuario para la sesión
         $usuario_id = $conexion->insert_id;
-        $sql_select = "SELECT USUARIO_ID, NOMBRE, APELLIDO, EMAIL, PASSWORD, ROL, FECHA_REGISTRO 
-                       FROM usuarios WHERE USUARIO_ID = ?";
+        $sql_select = "SELECT USUARIOS_ID, NOMBRE, APELLIDO, EMAIL, PASSWORD, ROL, FECHA_REGISTRO 
+                       FROM usuarios WHERE USUARIOS_ID = ?";
         $stmt_select = $conexion->prepare($sql_select);
         $stmt_select->bind_param("i", $usuario_id);
         $stmt_select->execute();
