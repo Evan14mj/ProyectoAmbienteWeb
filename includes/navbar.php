@@ -22,16 +22,34 @@
           <ul class="dropdown-menu dropdown-menu-dark">
             <li><a class="dropdown-item" href="actividades.php">Ver Actividades</a></li>
             <li><a class="dropdown-item" href="inscripcion.php">Inscripción</a></li>
-            <?php if (isset($_SESSION['usuario']) && $_SESSION['usuario']['ROL'] === 'admin'): ?>
+            <?php 
+            // Incluir archivo de roles si no está incluido
+            if (!function_exists('tieneRol')) {
+              require_once(__DIR__ . '/../functions/user_roles.php');
+            }
+            
+            // Mostrar opción solo para administradores
+            mostrarSiTieneRol('admin', '
             <li><a class="dropdown-item" href="gestionSolicitudes.php">Gestión de Solicitudes</a></li>
-            <?php endif; ?>
+            ');
+            ?>
           </ul>
         </li>
+        
+        <?php 
+        // Mostrar enlace al panel de administración solo para administradores
+        mostrarSiTieneRol('admin', '
+        <li class="nav-item">
+          <a class="nav-link" href="panel_admin.php">Panel de Administración</a>
+        </li>
+        ');
+        ?>
       </ul>
       
       <div class="d-flex align-items-center">
         <?php if (isset($_SESSION['usuario'])): ?>
           <span class="text-light me-3">Hola, <?php echo $_SESSION['usuario']['NOMBRE']; ?></span>
+          <a href="perfil.php" class="btn btn-outline-primary btn-sm me-2">Mi Perfil</a>
           <a href="functions/logout.php" class="btn btn-outline-danger btn-sm">Cerrar Sesión</a>
         <?php else: ?>
           <a href="functions/register.php" class="btn btn-outline-success btn-sm me-2">Registrarse</a>
