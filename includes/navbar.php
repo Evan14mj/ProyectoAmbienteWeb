@@ -22,6 +22,7 @@
           <ul class="dropdown-menu dropdown-menu-dark">
             <li><a class="dropdown-item" href="actividades.php">Ver Actividades</a></li>
             <li><a class="dropdown-item" href="inscripcion.php">Inscripción</a></li>
+            <li><a class="dropdown-item" href="foro.php">Foro</a></li>
             <?php 
             // Incluir archivo de roles si no está incluido
             if (!function_exists('tieneRol')) {
