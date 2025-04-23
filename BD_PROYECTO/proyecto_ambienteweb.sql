@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3307
--- Tiempo de generación: 13-04-2025 a las 02:42:46
+-- Tiempo de generación: 23-04-2025 a las 04:57:50
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -87,10 +87,23 @@ CREATE TABLE `eventos` (
 CREATE TABLE `foro` (
   `PUBLICACION_ID` int(11) NOT NULL,
   `USUARIO_ID` int(11) DEFAULT NULL,
-  `CONTENIDO` varchar(255) DEFAULT NULL,
+  `LINK` varchar(2033) DEFAULT NULL,
   `FECHA_PUBLICACION` date DEFAULT NULL,
-  `TIPO` varchar(100) DEFAULT NULL
+  `DESCRIPCION` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `foro`
+--
+
+INSERT INTO `foro` (`PUBLICACION_ID`, `USUARIO_ID`, `LINK`, `FECHA_PUBLICACION`, `DESCRIPCION`) VALUES
+(2, NULL, 'https://www.youtube.com/watch?v=Rxcyo08LaPM', '2025-04-23', 'Esta rutina esta enfocada en personas que realizan deportes de contacto como puede ser MMA, Boxeo'),
+(4, 1, 'https://www.youtube.com/watch?v=Rxcyo08LaPM', '2025-04-23', 'Esta rutina esta enfocada en personas que realizan deportes de contacto como puede ser MMA, Boxeo'),
+(5, 1, 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
+(6, 1, 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
+(7, 1, 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
+(8, 1, 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
+(9, 1, 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina esta enfocada en personas que realizan deportes de contacto como puede ser MMA, Boxeo');
 
 -- --------------------------------------------------------
 
@@ -128,7 +141,7 @@ CREATE TABLE `notificaciones` (
 --
 
 CREATE TABLE `usuarios` (
-  `USUARIO_ID` int(11) NOT NULL,
+  `USUARIOS_ID` int(11) NOT NULL,
   `NOMBRE` varchar(100) DEFAULT NULL,
   `APELLIDO` varchar(100) DEFAULT NULL,
   `EMAIL` varchar(100) DEFAULT NULL,
@@ -141,7 +154,7 @@ CREATE TABLE `usuarios` (
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`USUARIO_ID`, `NOMBRE`, `APELLIDO`, `EMAIL`, `PASSWORD`, `ROL`, `FECHA_REGISTRO`) VALUES
+INSERT INTO `usuarios` (`USUARIOS_ID`, `NOMBRE`, `APELLIDO`, `EMAIL`, `PASSWORD`, `ROL`, `FECHA_REGISTRO`) VALUES
 (1, 'Evan', 'Marin', 'emarin@mail.com', 'adminEvan', 'admin', '2025-04-12');
 
 --
@@ -204,7 +217,7 @@ ALTER TABLE `notificaciones`
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`USUARIO_ID`),
+  ADD PRIMARY KEY (`USUARIOS_ID`),
   ADD UNIQUE KEY `EMAIL` (`EMAIL`),
   ADD UNIQUE KEY `PASSWORD` (`PASSWORD`);
 
@@ -240,7 +253,7 @@ ALTER TABLE `eventos`
 -- AUTO_INCREMENT de la tabla `foro`
 --
 ALTER TABLE `foro`
-  MODIFY `PUBLICACION_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `PUBLICACION_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT de la tabla `inscripciones`
@@ -258,7 +271,7 @@ ALTER TABLE `notificaciones`
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `USUARIO_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `USUARIOS_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
@@ -274,7 +287,7 @@ ALTER TABLE `calendario`
 -- Filtros para la tabla `equipos`
 --
 ALTER TABLE `equipos`
-  ADD CONSTRAINT `equipos_ibfk_1` FOREIGN KEY (`ENTRENADOR_ID`) REFERENCES `usuarios` (`USUARIO_ID`);
+  ADD CONSTRAINT `equipos_ibfk_1` FOREIGN KEY (`ENTRENADOR_ID`) REFERENCES `usuarios` (`USUARIOS_ID`);
 
 --
 -- Filtros para la tabla `estadisticas`
@@ -287,19 +300,19 @@ ALTER TABLE `estadisticas`
 -- Filtros para la tabla `eventos`
 --
 ALTER TABLE `eventos`
-  ADD CONSTRAINT `eventos_ibfk_1` FOREIGN KEY (`ORGANIZADOR_ID`) REFERENCES `usuarios` (`USUARIO_ID`);
+  ADD CONSTRAINT `eventos_ibfk_1` FOREIGN KEY (`ORGANIZADOR_ID`) REFERENCES `usuarios` (`USUARIOS_ID`);
 
 --
 -- Filtros para la tabla `foro`
 --
 ALTER TABLE `foro`
-  ADD CONSTRAINT `foro_ibfk_1` FOREIGN KEY (`USUARIO_ID`) REFERENCES `usuarios` (`USUARIO_ID`);
+  ADD CONSTRAINT `foro_ibfk_1` FOREIGN KEY (`USUARIO_ID`) REFERENCES `usuarios` (`USUARIOS_ID`);
 
 --
 -- Filtros para la tabla `inscripciones`
 --
 ALTER TABLE `inscripciones`
-  ADD CONSTRAINT `inscripciones_ibfk_1` FOREIGN KEY (`USUARIO_ID`) REFERENCES `usuarios` (`USUARIO_ID`),
+  ADD CONSTRAINT `inscripciones_ibfk_1` FOREIGN KEY (`USUARIO_ID`) REFERENCES `usuarios` (`USUARIOS_ID`),
   ADD CONSTRAINT `inscripciones_ibfk_2` FOREIGN KEY (`EVENTO_ID`) REFERENCES `eventos` (`EVENTO_ID`),
   ADD CONSTRAINT `inscripciones_ibfk_3` FOREIGN KEY (`EQUIPO_ID`) REFERENCES `equipos` (`EQUIPO_ID`);
 
@@ -307,7 +320,7 @@ ALTER TABLE `inscripciones`
 -- Filtros para la tabla `notificaciones`
 --
 ALTER TABLE `notificaciones`
-  ADD CONSTRAINT `notificaciones_ibfk_1` FOREIGN KEY (`USUARIO_ID`) REFERENCES `usuarios` (`USUARIO_ID`);
+  ADD CONSTRAINT `notificaciones_ibfk_1` FOREIGN KEY (`USUARIO_ID`) REFERENCES `usuarios` (`USUARIOS_ID`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
