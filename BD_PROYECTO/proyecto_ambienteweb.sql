@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3307
--- Tiempo de generación: 23-04-2025 a las 04:57:50
+-- Tiempo de generación: 23-04-2025 a las 22:37:47
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -87,6 +87,7 @@ CREATE TABLE `eventos` (
 CREATE TABLE `foro` (
   `PUBLICACION_ID` int(11) NOT NULL,
   `USUARIO_ID` int(11) DEFAULT NULL,
+  `TITULO` varchar(255) DEFAULT NULL,
   `LINK` varchar(2033) DEFAULT NULL,
   `FECHA_PUBLICACION` date DEFAULT NULL,
   `DESCRIPCION` varchar(255) DEFAULT NULL
@@ -96,14 +97,14 @@ CREATE TABLE `foro` (
 -- Volcado de datos para la tabla `foro`
 --
 
-INSERT INTO `foro` (`PUBLICACION_ID`, `USUARIO_ID`, `LINK`, `FECHA_PUBLICACION`, `DESCRIPCION`) VALUES
-(2, NULL, 'https://www.youtube.com/watch?v=Rxcyo08LaPM', '2025-04-23', 'Esta rutina esta enfocada en personas que realizan deportes de contacto como puede ser MMA, Boxeo'),
-(4, 1, 'https://www.youtube.com/watch?v=Rxcyo08LaPM', '2025-04-23', 'Esta rutina esta enfocada en personas que realizan deportes de contacto como puede ser MMA, Boxeo'),
-(5, 1, 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
-(6, 1, 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
-(7, 1, 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
-(8, 1, 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
-(9, 1, 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina esta enfocada en personas que realizan deportes de contacto como puede ser MMA, Boxeo');
+INSERT INTO `foro` (`PUBLICACION_ID`, `USUARIO_ID`, `TITULO`, `LINK`, `FECHA_PUBLICACION`, `DESCRIPCION`) VALUES
+(2, NULL, '', 'https://www.youtube.com/watch?v=Rxcyo08LaPM', '2025-04-23', 'Esta rutina esta enfocada en personas que realizan deportes de contacto como puede ser MMA, Boxeo'),
+(4, 1, '', 'https://www.youtube.com/watch?v=Rxcyo08LaPM', '2025-04-23', 'Esta rutina esta enfocada en personas que realizan deportes de contacto como puede ser MMA, Boxeo'),
+(5, 1, '', 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
+(6, 1, '', 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
+(7, 1, '', 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
+(8, 1, '', 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
+(9, 1, '', 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina esta enfocada en personas que realizan deportes de contacto como puede ser MMA, Boxeo');
 
 -- --------------------------------------------------------
 

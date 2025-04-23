@@ -21,11 +21,11 @@
             if(empty($titulo) || empty($descripcion) || empty($link)){
                 $error = 'Porfavor llenar todos los espacios';
             } else {
-            $stmt = $conexion->prepare ("INSERT INTO foro (USUARIO_ID, LINK, FECHA_PUBLICACION, DESCRIPCION) VALUES (?, ?, ?, ?)");
-            $stmt->bind_param ("isss", $usuario_id, $link, $fecha, $descripcion);
+            $stmt = $conexion->prepare ("INSERT INTO foro (USUARIO_ID, TITULO, LINK, FECHA_PUBLICACION, DESCRIPCION) VALUES (?, ?, ?, ?, ?)");
+            $stmt->bind_param("issss", $usuario_id, $titulo, $link, $fecha, $descripcion);
 
             if ($stmt-> execute()){
-                $mensaje = 'Publicacion Exitosa';
+                $succes = 'Publicacion Exitosa';
             } else {
                 $error = 'Fallo al guardar la publicacion: '. $conexion -> error;
             }
