@@ -1,5 +1,5 @@
 <?php
-require_once('conexion.php'); // Conexión a la base de datos
+require_once('conexion.php');
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'];
