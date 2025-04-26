@@ -78,9 +78,7 @@
     </div>
 </div>
 
-<!-- Asegúrate de incluir Font Awesome para los iconos -->
 <script>
-    // Verificar si Font Awesome ya está incluido
     if (document.querySelectorAll('link[href*="font-awesome"], link[href*="fontawesome"]').length === 0) {
         var fontAwesome = document.createElement('link');
         fontAwesome.rel = 'stylesheet';
