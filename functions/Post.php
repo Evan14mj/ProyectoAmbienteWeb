@@ -94,7 +94,6 @@
                             <select class="form-select" id="Tipo" name="Tipo" required>
                                 <option value="" selected disabled>Selecciona un tipo</option>
                                 <option value="video">Video</option>
-                                <option value="imagen">Imagen</option>
                                 <option value="articulo">Artículo</option>
                                 <option value="pregunta">Pregunta</option>
                                 <option value="consejo">Consejo</option>
