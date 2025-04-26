@@ -6,9 +6,10 @@
 ?>
 
 <main>
-    <div class="container py-5">
+    <div class="container py-4">
         <h1 class="mb-4 text-center">Nuestros Servicios</h1>
             
+        <div class="row g-4">
             <div class="col-md-4">
                 <div class="card h-100">
                     <div class="card-body">
@@ -27,13 +28,6 @@
                         <a href="foro.php" class="btn btn-primary">Acceder al foro</a>
                     </div>
                 </div>
-            </div>
-        </div>
-        
-        <div class="row mt-5">
-            <div class="col-12 text-center">
-                <p class="lead">¿Necesitas más información sobre nuestros servicios?</p>
-                <a href="#" class="btn btn-success">Contáctanos</a>
             </div>
         </div>
     </div>
