@@ -18,10 +18,6 @@
                     <h1 class="display-3 fw-bold mb-4">YouthCore</h1>
                     <p class="lead fs-4 mb-5">Únete a la nueva generación que se mueve por un futuro más saludable.
                     Descubre programas, actividades y recursos diseñados para fortalecer tu cuerpo, mente y comunidad.</p>
-                    <div class="d-grid gap-3 d-sm-flex justify-content-sm-center">
-                        <button class="btn btn-primary btn-lg px-4">Botón Principal</button>
-                        <button class="btn btn-outline-light btn-lg px-4">Botón Secundario</button>
-                    </div>
                 </div>
             </div>
         </div>
