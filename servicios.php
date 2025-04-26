@@ -8,17 +8,6 @@
 <main>
     <div class="container py-5">
         <h1 class="mb-4 text-center">Nuestros Servicios</h1>
-        
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card h-100">
-                    <div class="card-body">
-                        <h5 class="card-title">Asesoría Deportiva</h5>
-                        <p class="card-text">Ofrecemos planes personalizados para mejorar tu desempeño físico y adoptar un estilo de vida saludable.</p>
-                        <a href="#" class="btn btn-primary">Más información</a>
-                    </div>
-                </div>
-            </div>
             
             <div class="col-md-4">
                 <div class="card h-100">
