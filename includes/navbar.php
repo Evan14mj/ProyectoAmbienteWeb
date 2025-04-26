@@ -20,7 +20,7 @@
             Actividades
           </a>
           <ul class="dropdown-menu dropdown-menu-dark">
-            <li><a class="dropdown-item" href="inscripcion.php">Inscripción</a></li>
+            <li><a class="dropdown-item" href="mis_inscripciones.php">Inscripción</a></li>
             <li><a class="dropdown-item" href="foro.php">Foro</a></li>
             <li><a class="dropdown-item" href="ver_eventos.php">Eventos</a></li>
             <?php 
