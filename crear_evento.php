@@ -1,7 +1,6 @@
 <?php
 require_once('functions/conexion.php');
 require_once('functions/user_roles.php');
-session_start();
 
 // Redirigir si no es administrador
 if (!isset($_SESSION['usuario']) || !tieneRol('admin')) {
