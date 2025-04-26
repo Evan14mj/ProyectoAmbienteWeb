@@ -1,7 +1,16 @@
 <?php
+require_once('functions/conexion.php');
+require_once('functions/user_roles.php');
+session_start();
+
+// Redirigir si no es administrador
+if (!isset($_SESSION['usuario']) || !tieneRol('admin')) {
+    header('Location: index.php');
+    exit;
+}
+
 require_once('includes/header.php');
 require_once('includes/navbar.php');
-require_once('functions/conexion.php');
 ?>
 
 <div class="container mt-5">
@@ -31,10 +40,9 @@ require_once('functions/conexion.php');
                     <label>Descripción</label>
                     <textarea name="descripcion" class="form-control" required></textarea>
                 </div>
-                <div class="form-group mb-3">
-                    <label>ID del Organizador</label>
-                    <input type="number" name="organizador_id" class="form-control" required>
-                </div>
+                
+                <!-- Usar el ID del usuario actual como organizador -->
+                <input type="hidden" name="organizador_id" value="<?php echo $_SESSION['usuario']['USUARIOS_ID']; ?>">
 
                 <button type="submit" class="btn btn-success">Crear Evento</button>
                 

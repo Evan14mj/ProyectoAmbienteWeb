@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: localhost:3307
--- Tiempo de generación: 23-04-2025 a las 22:37:47
+-- Tiempo de generación: 26-04-2025 a las 04:18:31
 -- Versión del servidor: 10.4.32-MariaDB
 -- Versión de PHP: 8.2.12
 
@@ -78,6 +78,18 @@ CREATE TABLE `eventos` (
   `ORGANIZADOR_ID` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Volcado de datos para la tabla `eventos`
+--
+
+INSERT INTO `eventos` (`EVENTO_ID`, `NOMBRE`, `FECHA`, `UBICACION`, `TIPO_ACTIVIDAD`, `DESCRIPCION`, `ORGANIZADOR_ID`) VALUES
+(1, 'Torneo de Fútbol Comunitario', '2025-04-27', 'Estadio Municipal', 'Deportivo', 'Torneo amistoso de fútbol para todas las edades. Se formarán equipos de 6 jugadores.', 1),
+(8, 'Media Maratón Urbana', '2025-06-22', 'Parque Central', 'Deportivo', 'Carrera de 21km por las principales calles de la ciudad. Incluye hidratación y camiseta conmemorativa.', 1),
+(9, 'Clase de Yoga al Aire Libre', '2025-04-30', 'Parque de los Jacarandás', 'Bienestar', 'Sesión de yoga para principiantes y avanzados. Trae tu mat y ropa cómoda.', 1),
+(10, 'Competencia de Natación', '2025-06-10', 'Piscina Olímpica Municipal', 'Deportivo', 'Competencia de natación en categorías infantil, juvenil y adultos. Pruebas de 50m, 100m y relevos.', 1),
+(11, 'Paseo en Bicicleta Familiar', '2025-05-05', 'Plaza Principal', 'Recreativo', 'Recorrido de 15km por la ciudad. Actividad para toda la familia. Traer bicicleta y casco obligatorio.', 1),
+(12, 'Taller de Nutrición Deportiva', '2025-04-27', 'Centro Comunitario', 'Educativo', 'Aprende sobre alimentación adecuada para optimizar tu rendimiento deportivo. Impartido por nutricionistas especializados.', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -87,24 +99,17 @@ CREATE TABLE `eventos` (
 CREATE TABLE `foro` (
   `PUBLICACION_ID` int(11) NOT NULL,
   `USUARIO_ID` int(11) DEFAULT NULL,
-  `TITULO` varchar(255) DEFAULT NULL,
-  `LINK` varchar(2033) DEFAULT NULL,
+  `CONTENIDO` varchar(255) DEFAULT NULL,
   `FECHA_PUBLICACION` date DEFAULT NULL,
-  `DESCRIPCION` varchar(255) DEFAULT NULL
+  `TIPO` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Volcado de datos para la tabla `foro`
 --
 
-INSERT INTO `foro` (`PUBLICACION_ID`, `USUARIO_ID`, `TITULO`, `LINK`, `FECHA_PUBLICACION`, `DESCRIPCION`) VALUES
-(2, NULL, '', 'https://www.youtube.com/watch?v=Rxcyo08LaPM', '2025-04-23', 'Esta rutina esta enfocada en personas que realizan deportes de contacto como puede ser MMA, Boxeo'),
-(4, 1, '', 'https://www.youtube.com/watch?v=Rxcyo08LaPM', '2025-04-23', 'Esta rutina esta enfocada en personas que realizan deportes de contacto como puede ser MMA, Boxeo'),
-(5, 1, '', 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
-(6, 1, '', 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
-(7, 1, '', 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
-(8, 1, '', 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina tiene la función de ayudar a incrementar el salto vertical de los jugadores'),
-(9, 1, '', 'https://www.youtube.com/watch?v=SRa6seKnn2Q', '2025-04-23', 'Esta rutina esta enfocada en personas que realizan deportes de contacto como puede ser MMA, Boxeo');
+INSERT INTO `foro` (`PUBLICACION_ID`, `USUARIO_ID`, `CONTENIDO`, `FECHA_PUBLICACION`, `TIPO`) VALUES
+(1, 2, 'Hola mi nombre es Juan', '2025-04-26', 'articulo');
 
 -- --------------------------------------------------------
 
@@ -120,6 +125,13 @@ CREATE TABLE `inscripciones` (
   `FECHA` date DEFAULT NULL,
   `ESTADO` varchar(10) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Volcado de datos para la tabla `inscripciones`
+--
+
+INSERT INTO `inscripciones` (`INSCRIPCION_ID`, `USUARIO_ID`, `EVENTO_ID`, `EQUIPO_ID`, `FECHA`, `ESTADO`) VALUES
+(1, 2, 1, NULL, '2025-04-25', 'aprobada');
 
 -- --------------------------------------------------------
 
@@ -156,172 +168,65 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`USUARIOS_ID`, `NOMBRE`, `APELLIDO`, `EMAIL`, `PASSWORD`, `ROL`, `FECHA_REGISTRO`) VALUES
-(1, 'Evan', 'Marin', 'emarin@mail.com', 'adminEvan', 'admin', '2025-04-12');
+(1, 'Evan', 'Marin', 'emarin@mail.com', 'admin1', 'admin', '2025-04-09'),
+(2, 'Juan', 'Perez', 'jperez@mail.com', 'prueba', 'usuario', '2025-04-09'),
+(4, 'Prueba', 'prueba', 'prueba@mail.com', 'prueba2', 'usuario', '2025-04-21');
 
 --
 -- Índices para tablas volcadas
 --
 
 --
--- Indices de la tabla `calendario`
---
-ALTER TABLE `calendario`
-  ADD PRIMARY KEY (`CALENDARIO_ID`),
-  ADD KEY `EVENTO_ID` (`EVENTO_ID`);
-
---
--- Indices de la tabla `equipos`
---
-ALTER TABLE `equipos`
-  ADD PRIMARY KEY (`EQUIPO_ID`),
-  ADD KEY `ENTRENADOR_ID` (`ENTRENADOR_ID`);
-
---
--- Indices de la tabla `estadisticas`
---
-ALTER TABLE `estadisticas`
-  ADD PRIMARY KEY (`ESTADISTICA_ID`),
-  ADD KEY `EVENTO_ID` (`EVENTO_ID`),
-  ADD KEY `EQUIPO_ID` (`EQUIPO_ID`);
-
---
 -- Indices de la tabla `eventos`
 --
 ALTER TABLE `eventos`
-  ADD PRIMARY KEY (`EVENTO_ID`),
-  ADD KEY `ORGANIZADOR_ID` (`ORGANIZADOR_ID`);
+  ADD PRIMARY KEY (`EVENTO_ID`);
 
 --
 -- Indices de la tabla `foro`
 --
 ALTER TABLE `foro`
-  ADD PRIMARY KEY (`PUBLICACION_ID`),
-  ADD KEY `USUARIO_ID` (`USUARIO_ID`);
+  ADD PRIMARY KEY (`PUBLICACION_ID`);
 
 --
 -- Indices de la tabla `inscripciones`
 --
 ALTER TABLE `inscripciones`
-  ADD PRIMARY KEY (`INSCRIPCION_ID`),
-  ADD KEY `USUARIO_ID` (`USUARIO_ID`),
-  ADD KEY `EVENTO_ID` (`EVENTO_ID`),
-  ADD KEY `EQUIPO_ID` (`EQUIPO_ID`);
-
---
--- Indices de la tabla `notificaciones`
---
-ALTER TABLE `notificaciones`
-  ADD PRIMARY KEY (`NOTIFICACION_ID`),
-  ADD KEY `USUARIO_ID` (`USUARIO_ID`);
+  ADD PRIMARY KEY (`INSCRIPCION_ID`);
 
 --
 -- Indices de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  ADD PRIMARY KEY (`USUARIOS_ID`),
-  ADD UNIQUE KEY `EMAIL` (`EMAIL`),
-  ADD UNIQUE KEY `PASSWORD` (`PASSWORD`);
+  ADD PRIMARY KEY (`USUARIOS_ID`);
 
 --
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
 --
--- AUTO_INCREMENT de la tabla `calendario`
---
-ALTER TABLE `calendario`
-  MODIFY `CALENDARIO_ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `equipos`
---
-ALTER TABLE `equipos`
-  MODIFY `EQUIPO_ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `estadisticas`
---
-ALTER TABLE `estadisticas`
-  MODIFY `ESTADISTICA_ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT de la tabla `eventos`
 --
 ALTER TABLE `eventos`
-  MODIFY `EVENTO_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `EVENTO_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT de la tabla `foro`
 --
 ALTER TABLE `foro`
-  MODIFY `PUBLICACION_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `PUBLICACION_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `inscripciones`
 --
 ALTER TABLE `inscripciones`
-  MODIFY `INSCRIPCION_ID` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT de la tabla `notificaciones`
---
-ALTER TABLE `notificaciones`
-  MODIFY `NOTIFICACION_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `INSCRIPCION_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `USUARIOS_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
---
--- Restricciones para tablas volcadas
---
-
---
--- Filtros para la tabla `calendario`
---
-ALTER TABLE `calendario`
-  ADD CONSTRAINT `calendario_ibfk_1` FOREIGN KEY (`EVENTO_ID`) REFERENCES `eventos` (`EVENTO_ID`);
-
---
--- Filtros para la tabla `equipos`
---
-ALTER TABLE `equipos`
-  ADD CONSTRAINT `equipos_ibfk_1` FOREIGN KEY (`ENTRENADOR_ID`) REFERENCES `usuarios` (`USUARIOS_ID`);
-
---
--- Filtros para la tabla `estadisticas`
---
-ALTER TABLE `estadisticas`
-  ADD CONSTRAINT `estadisticas_ibfk_1` FOREIGN KEY (`EVENTO_ID`) REFERENCES `eventos` (`EVENTO_ID`),
-  ADD CONSTRAINT `estadisticas_ibfk_2` FOREIGN KEY (`EQUIPO_ID`) REFERENCES `equipos` (`EQUIPO_ID`);
-
---
--- Filtros para la tabla `eventos`
---
-ALTER TABLE `eventos`
-  ADD CONSTRAINT `eventos_ibfk_1` FOREIGN KEY (`ORGANIZADOR_ID`) REFERENCES `usuarios` (`USUARIOS_ID`);
-
---
--- Filtros para la tabla `foro`
---
-ALTER TABLE `foro`
-  ADD CONSTRAINT `foro_ibfk_1` FOREIGN KEY (`USUARIO_ID`) REFERENCES `usuarios` (`USUARIOS_ID`);
-
---
--- Filtros para la tabla `inscripciones`
---
-ALTER TABLE `inscripciones`
-  ADD CONSTRAINT `inscripciones_ibfk_1` FOREIGN KEY (`USUARIO_ID`) REFERENCES `usuarios` (`USUARIOS_ID`),
-  ADD CONSTRAINT `inscripciones_ibfk_2` FOREIGN KEY (`EVENTO_ID`) REFERENCES `eventos` (`EVENTO_ID`),
-  ADD CONSTRAINT `inscripciones_ibfk_3` FOREIGN KEY (`EQUIPO_ID`) REFERENCES `equipos` (`EQUIPO_ID`);
-
---
--- Filtros para la tabla `notificaciones`
---
-ALTER TABLE `notificaciones`
-  ADD CONSTRAINT `notificaciones_ibfk_1` FOREIGN KEY (`USUARIO_ID`) REFERENCES `usuarios` (`USUARIOS_ID`);
+  MODIFY `USUARIOS_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

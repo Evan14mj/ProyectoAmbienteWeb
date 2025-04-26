@@ -1,6 +1,14 @@
 <?php
 require_once('functions/conexion.php');
+require_once('functions/user_roles.php');
 session_start();
+
+// Redirigir si no es administrador
+if (!isset($_SESSION['usuario']) || !tieneRol('admin')) {
+    header('Location: index.php');
+    exit;
+}
+
 require_once('includes/header.php');
 require_once('includes/navbar.php');
 
@@ -30,28 +38,25 @@ $evento = $result->fetch_assoc();
         <input type="hidden" name="evento_id" value="<?php echo $evento['EVENTO_ID']; ?>">
         <div class="mb-3">
             <label>Nombre del Evento</label>
-            <input type="text" name="nombre" class="form-control" value="<?php echo $evento['NOMBRE']; ?>" required>
+            <input type="text" name="nombre" class="form-control" value="<?php echo htmlspecialchars($evento['NOMBRE']); ?>" required>
         </div>
         <div class="mb-3">
             <label>Fecha</label>
-            <input type="date" name="fecha" class="form-control" value="<?php echo $evento['FECHA']; ?>" required>
+            <input type="date" name="fecha" class="form-control" value="<?php echo htmlspecialchars($evento['FECHA']); ?>" required>
         </div>
         <div class="mb-3">
             <label>Ubicación</label>
-            <input type="text" name="ubicacion" class="form-control" value="<?php echo $evento['UBICACION']; ?>" required>
+            <input type="text" name="ubicacion" class="form-control" value="<?php echo htmlspecialchars($evento['UBICACION']); ?>" required>
         </div>
         <div class="mb-3">
             <label>Tipo de Actividad</label>
-            <input type="text" name="tipo_actividad" class="form-control" value="<?php echo $evento['TIPO_ACTIVIDAD']; ?>" required>
+            <input type="text" name="tipo_actividad" class="form-control" value="<?php echo htmlspecialchars($evento['TIPO_ACTIVIDAD']); ?>" required>
         </div>
         <div class="mb-3">
             <label>Descripción</label>
-            <textarea name="descripcion" class="form-control" required><?php echo $evento['DESCRIPCION']; ?></textarea>
+            <textarea name="descripcion" class="form-control" required><?php echo htmlspecialchars($evento['DESCRIPCION']); ?></textarea>
         </div>
-        <div class="mb-3">
-            <label>ID del Organizador</label>
-            <input type="number" name="organizador_id" class="form-control" value="<?php echo $evento['ORGANIZADOR_ID']; ?>" required>
-        </div>
+        <input type="hidden" name="organizador_id" value="<?php echo $evento['ORGANIZADOR_ID']; ?>">
         <button type="submit" class="btn btn-warning">Actualizar Evento</button>
         <a href="ver_eventos.php" class="btn btn-secondary">Cancelar</a>
     </form>

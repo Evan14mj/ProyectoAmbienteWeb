@@ -42,7 +42,6 @@ if ($resultado && $resultado->num_rows > 0) {
             <div class="card">
                 <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                     <h4 class="mb-0">Gestión de Usuarios</h4>
-                    <a href="#" class="btn btn-light btn-sm">Agregar Usuario</a>
                 </div>
                 <div class="card-body">
                     <?php if (count($usuarios) > 0): ?>

@@ -1,9 +1,18 @@
 <?php
 require_once('conexion.php');
+require_once('user_roles.php');
+
+session_start();
+
+// Verificar si el usuario está autenticado y es administrador
+if (!isset($_SESSION['usuario']) || !tieneRol('admin')) {
+    header('Location: ../index.php');
+    exit;
+}
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $nombre = $_POST['nombre'];
-    $fecha = $_POST['fecha'];
+    $fecha = $_POST['fecha']; // Formato ya es YYYY-MM-DD desde el input type="date"
     $ubicacion = $_POST['ubicacion'];
     $tipo = $_POST['tipo_actividad'];
     $descripcion = $_POST['descripcion'];

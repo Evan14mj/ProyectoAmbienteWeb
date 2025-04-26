@@ -44,7 +44,7 @@ $usuario = $_SESSION['usuario'];
                 </div>
                 <div class="card-body">
                     <p>Ver las actividades en las que estás inscrito.</p>
-                    <a href="#" class="btn btn-info">Ver Inscripciones</a>
+                    <a href="inscripcion.php" class="btn btn-info">Ver Inscripciones</a>
                 </div>
             </div>
         </div>
@@ -69,11 +69,11 @@ $usuario = $_SESSION['usuario'];
         <div class="col-md-6 mb-4">
             <div class="card">
                 <div class="card-header bg-success text-white">
-                    <h5>Inscribirme</h5>
+                    <h5>Eventos Disponibles</h5>
                 </div>
                 <div class="card-body">
-                    <p>Inscribirme en nuevas actividades.</p>
-                    <a href="inscripcion.php" class="btn btn-success">Inscribirme</a>
+                    <p>Ver eventos disponibles para inscripción.</p>
+                    <a href="ver_eventos.php" class="btn btn-success">Ver Eventos</a>
                 </div>
             </div>
         </div>
